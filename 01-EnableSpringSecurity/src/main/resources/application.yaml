@@ -16,7 +16,7 @@ spring:
       hibernate:
         # Beter leesbare SQL queries (handig voor debugging)
         format_sql: true
-        # Voeg automatisch aanhalingstekens toe bij gereserveerde keywords zoals "user"
+        # Voeg automatisch aanhalingstekens toe bij gereserveerde keywords zoals "User"
         auto_quote_keyword: true
   h2:
     console:

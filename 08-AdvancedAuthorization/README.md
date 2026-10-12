@@ -114,7 +114,7 @@ Deze `@PreAuthorize(...)` check kijkt nu na of de `id` in onze `userDetails` ove
 
 We kunnen de vorige stap ook op een kortere manier doen. Laten we dat doen met de `updateUser`-methode van [`UserController`](./src/main/java/be/ucll/backend2/controller/UserController.java).
 
-Met `principal` kunnen we in `@PreAuthorize(...)` rechtreeks naar de authentication principal verwijzen:
+Met `principal` kunnen we in `@PreAuthorize(...)` rechtstreeks naar de authentication principal verwijzen:
 
 ```java
 @PutMapping("/{id}")

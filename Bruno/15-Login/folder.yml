@@ -1,0 +1,8 @@
+info:
+  name: 15-Login
+  type: folder
+  seq: 11
+
+request:
+  auth: inherit
+

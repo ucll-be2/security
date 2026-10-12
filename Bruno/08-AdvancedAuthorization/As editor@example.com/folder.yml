@@ -1,0 +1,11 @@
+info:
+  name: As editor@example.com
+  type: folder
+  seq: 1
+
+request:
+  auth:
+    type: basic
+    username: editor@example.com
+    password: editor
+

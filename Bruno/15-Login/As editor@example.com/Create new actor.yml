@@ -1,0 +1,23 @@
+info:
+  name: Create new actor
+  type: http
+  seq: 7
+
+http:
+  method: POST
+  url: "{{host}}/api/v1/actors"
+  body:
+    type: json
+    data: |-
+      {
+          "name": "Jos Bosmans"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: false
+  maxRedirects: 5
+  forwardAuthorizationHeader: false
+

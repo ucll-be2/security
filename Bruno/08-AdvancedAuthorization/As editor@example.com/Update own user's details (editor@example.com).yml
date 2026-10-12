@@ -1,0 +1,32 @@
+info:
+  name: Update own user's details (editor@example.com)
+  type: http
+  seq: 4
+
+http:
+  method: PUT
+  url: "{{baseUrl}}/api/v1/users/:userId"
+  headers:
+    - name: Accept
+      value: application/json
+  params:
+    - name: userId
+      value: "{{editorId}}"
+      type: path
+  body:
+    type: json
+    data: |-
+      {
+        "emailAddress": "changededitor@example.com",
+        "password": "changedpassword"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: false
+  maxRedirects: 5
+  forwardAuthorizationHeader: false
+  omitHeaders:
+    - Accept

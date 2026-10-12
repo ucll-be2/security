@@ -1,0 +1,23 @@
+info:
+  name: Create new user
+  type: http
+  seq: 1
+
+http:
+  method: POST
+  url: "{{host}}/api/v1/users"
+  body:
+    type: json
+    data: |-
+      {
+        "emailAddress": "reader@example.com",
+        "password": "reader"
+      }
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: false
+  maxRedirects: 5
+  forwardAuthorizationHeader: false
+

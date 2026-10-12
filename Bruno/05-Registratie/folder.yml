@@ -1,0 +1,11 @@
+info:
+  name: 05-Registratie
+  type: folder
+  seq: 6
+
+request:
+  auth:
+    type: basic
+    username: jos@example.com
+    password: pass
+

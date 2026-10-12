@@ -1,0 +1,36 @@
+info:
+  name: Modify actor with ID
+  type: http
+  seq: 8
+
+http:
+  method: PUT
+  url: "{{baseUrl}}/api/v1/actors/:actorId"
+  headers:
+    - name: Accept
+      value: application/json
+  params:
+    - name: actorId
+      value: "{{actorId}}"
+      type: path
+  body:
+    type: json
+    data: |-
+      {
+          "name": "Clement Peerens"
+      }
+  auth: inherit
+
+runtime:
+  variables:
+    - name: actorId
+      value: "2"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: false
+  maxRedirects: 5
+  forwardAuthorizationHeader: false
+  omitHeaders:
+    - Accept

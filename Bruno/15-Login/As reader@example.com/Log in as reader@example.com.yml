@@ -1,0 +1,28 @@
+info:
+  name: Log in as reader@example.com
+  type: http
+  seq: 2
+
+http:
+  method: POST
+  url: "{{host}}/api/v1/sessions"
+  body:
+    type: json
+    data: |-
+      {
+        "emailAddress": "reader@example.com",
+        "password": "reader"
+      }
+
+runtime:
+  scripts:
+    - type: after-response
+      code: bru.setCollectionVar('reader_jwt', res.getBody().token);
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: false
+  maxRedirects: 5
+  forwardAuthorizationHeader: false
+

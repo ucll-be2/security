@@ -1,0 +1,28 @@
+info:
+  name: Log in as editor@example.com
+  type: http
+  seq: 1
+
+http:
+  method: POST
+  url: "{{host}}/api/v1/sessions"
+  body:
+    type: json
+    data: |-
+      {
+        "emailAddress": "editor@example.com",
+        "password": "editor"
+      }
+
+runtime:
+  scripts:
+    - type: after-response
+      code: bru.setCollectionVar('editor_jwt', res.getBody().token);
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: false
+  maxRedirects: 5
+  forwardAuthorizationHeader: false
+

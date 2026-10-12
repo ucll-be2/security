@@ -45,9 +45,9 @@ met naam `inMemoryUserDetailsManager`. Het tweede logbericht zullen we nog op te
 Probeer in je browser naar http://localhost:8080/api/v1/actors te gaan. Je zal zien dat je een login-venster krijgt.
 Log jezelf in met username `user` en het wachtwoord dat je in de logs ziet. Nu zal je zien dat je wel toegang krijgt.
 
-### Postman
+### Bruno
 
-We zien dat elke request die we proberen sturen met Postman ook resulteert in een `401 Unauthorized`. Hoe kunnen we
+We zien dat elke request die we proberen sturen met Bruno ook resulteert in een `401 Unauthorized`. Hoe kunnen we
 zonder login formulier toch onze inloggegevens sturen?
 
 In de headers die we terug krijgen zien we het volgende:
@@ -57,7 +57,7 @@ WWW-Authenticate: Basic realm="Realm"
 ```
 
 We kunnen dus inloggen met [HTTP Basic authentication](https://en.wikipedia.org/wiki/Basic_access_authentication). Dit
-kunnen we instellen in Postman. We kunnen dit voor de volledige collection doen door naar de collection te gaan en de
+kunnen we instellen in Bruno. We kunnen dit voor de volledige collection doen door naar de collection te gaan en de
 Auth tab te kiezen. Stel als Auth Type `Basic Auth` in en geef als username `user` en als wachtwoord het automatisch
 gegenereerd wachtwoord.
 

@@ -10,8 +10,8 @@ We schakelen Spring Security in door de nodige dependencies toe te voegen aan `p
     <artifactId>spring-boot-starter-security</artifactId>
 </dependency>
 <dependency>
-    <groupId>org.springframework.security</groupId>
-    <artifactId>spring-security-test</artifactId>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-security-test</artifactId>
     <scope>test</scope>
 </dependency>
 ```

@@ -12,19 +12,21 @@ import be.ucll.backend2.service.UserService;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.boot.resttestclient.autoconfigure.AutoConfigureRestTestClient;
+import org.springframework.boot.webmvc.test.autoconfigure.WebMvcTest;
 import org.springframework.context.annotation.Import;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.json.JsonCompareMode;
-import org.springframework.test.web.reactive.server.WebTestClient;
+import org.springframework.test.web.servlet.client.RestTestClient;
 
 @WebMvcTest(UserController.class)
 @Import(SecurityConfig.class)
+@AutoConfigureRestTestClient
 public class UserControllerTest {
     @Autowired
-    private WebTestClient client;
+    private RestTestClient client;
 
     @MockitoBean
     private UserService userService;
@@ -57,7 +59,7 @@ public class UserControllerTest {
         client
                 .put()
                 .uri("/api/v1/users/{id}", 1L)
-                .bodyValue(userDto)
+                .body(userDto)
                 .exchange()
                 .expectStatus().isOk()
                 .expectBody().json("""

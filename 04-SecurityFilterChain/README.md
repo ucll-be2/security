@@ -31,7 +31,7 @@ We zien nu alvast één debug bericht verschijnen waar we later nog op terug zul
 
 ### 2. Een `POST` request proberen
 
-Als we nu in Postman een `POST /api/v1/actors` request proberen uit te voeren zien we het volgende in de logs:
+Als we nu in Bruno een `POST /api/v1/actors` request proberen uit te voeren zien we het volgende in de logs:
 
 ```
 2025-10-15T20:32:00.756+02:00 DEBUG 22872 --- [Spring-Security] [nio-8080-exec-2] o.s.security.web.FilterChainProxy        : Securing POST /api/v1/actors

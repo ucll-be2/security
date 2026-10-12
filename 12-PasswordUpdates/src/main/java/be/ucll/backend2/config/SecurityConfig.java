@@ -1,9 +1,9 @@
 package be.ucll.backend2.config;
 
 import org.springframework.boot.autoconfigure.condition.ConditionalOnBooleanProperty;
-import org.springframework.boot.autoconfigure.h2.H2ConsoleProperties;
-import org.springframework.boot.autoconfigure.security.servlet.PathRequest;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
+import org.springframework.boot.h2console.autoconfigure.H2ConsoleProperties;
+import org.springframework.boot.security.autoconfigure.web.servlet.PathRequest;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.annotation.Order;
@@ -19,7 +19,7 @@ import org.springframework.security.web.SecurityFilterChain;
 @EnableMethodSecurity
 @EnableConfigurationProperties(H2ConsoleProperties.class)
 public class SecurityConfig {
-    // Source: https://docs.spring.io/spring-boot/3.5/reference/data/sql.html#data.sql.h2-web-console.spring-security
+    // Source: https://docs.spring.io/spring-boot/reference/data/sql.html#data.sql.h2-web-console.spring-security
     @Bean
     @Order(0)
     @ConditionalOnBooleanProperty(prefix = "spring.h2.console", name = "enabled")

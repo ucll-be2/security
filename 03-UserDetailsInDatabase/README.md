@@ -101,5 +101,5 @@ Je zou nu in je requests de gegevens van de user(s) in de database moeten kunnen
 
 - We kunnen vooraf gebruikers toevoegen aan de database, maar nog niet registeren. Hier gaan we in een volgende stap
   naartoe werken.
-- Als we via Postman POST, PUT of DELETE requests willen uitvoeren in de plaats van GET requests, zullen we merken
+- Als we via Bruno POST, PUT of DELETE requests willen uitvoeren in de plaats van GET requests, zullen we merken
   dat deze requests nog altijd falen. Dit gaan we proberen oplossen in de volgende stap.

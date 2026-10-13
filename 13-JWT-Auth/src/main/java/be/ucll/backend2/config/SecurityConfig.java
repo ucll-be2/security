@@ -32,7 +32,7 @@ public class SecurityConfig {
     @Bean
     @Order(0)
     @ConditionalOnBooleanProperty(prefix = "spring.h2.console", name = "enabled")
-    public SecurityFilterChain h2SecurityFilterChain(HttpSecurity http) throws Exception {
+    public SecurityFilterChain h2SecurityFilterChain(HttpSecurity http) {
         return http
                 .securityMatcher(PathRequest.toH2Console())
                 .csrf(csrf -> csrf.disable())
@@ -43,7 +43,7 @@ public class SecurityConfig {
 
     @Bean
     @Order(1)
-    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) {
         return http
                 .csrf(csrf -> csrf.disable())
                 .sessionManagement(

@@ -21,11 +21,6 @@ http:
       }
   auth: inherit
 
-runtime:
-  variables:
-    - name: actorId
-      value: "2"
-
 settings:
   encodeUrl: true
   timeout: 0

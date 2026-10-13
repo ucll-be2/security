@@ -28,5 +28,3 @@ extensions:
       request:
         type: http
         url: "{{baseUrl}}/"
-
-

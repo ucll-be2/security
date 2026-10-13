@@ -5,12 +5,20 @@ info:
 
 http:
   method: DELETE
-  url: "{{host}}/api/v1/actors/:actor_id"
+  url: "{{baseUrl}}/api/v1/actors/:actorId"
+  headers:
+    - name: Accept
+      value: application/json
   params:
-    - name: actor_id
-      value: "{{actor_id}}"
+    - name: actorId
+      value: "{{actorId}}"
       type: path
   auth: inherit
+
+runtime:
+  variables:
+    - name: actorId
+      value: "2"
 
 settings:
   encodeUrl: true
@@ -18,4 +26,5 @@ settings:
   followRedirects: false
   maxRedirects: 5
   forwardAuthorizationHeader: false
-
+  omitHeaders:
+    - Accept

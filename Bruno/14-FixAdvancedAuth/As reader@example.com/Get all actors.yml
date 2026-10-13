@@ -5,7 +5,10 @@ info:
 
 http:
   method: GET
-  url: "{{host}}/api/v1/actors"
+  url: "{{baseUrl}}/api/v1/actors"
+  headers:
+    - name: Accept
+      value: application/json
   auth: inherit
 
 settings:
@@ -14,4 +17,5 @@ settings:
   followRedirects: false
   maxRedirects: 5
   forwardAuthorizationHeader: false
-
+  omitHeaders:
+    - Accept

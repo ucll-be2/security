@@ -153,7 +153,7 @@ gebruiker. Dit geeft ons de volgende [`SecurityFilterChain`](./src/main/java/be/
 ```java
 @Bean
 @Order(1)
-public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+public SecurityFilterChain securityFilterChain(HttpSecurity http) {
     return http
             .csrf(csrf -> csrf.disable())
             // Gebruik stateless sessies

@@ -6,6 +6,9 @@ info:
 http:
   method: POST
   url: "{{baseUrl}}/api/v1/actors"
+  headers:
+    - name: Accept
+      value: application/json
   body:
     type: json
     data: |-
@@ -31,4 +34,5 @@ settings:
   followRedirects: false
   maxRedirects: 5
   forwardAuthorizationHeader: false
-
+  omitHeaders:
+    - Accept

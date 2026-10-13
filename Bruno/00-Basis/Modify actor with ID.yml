@@ -6,6 +6,9 @@ info:
 http:
   method: PUT
   url: "{{baseUrl}}/api/v1/actors/:actorId"
+  headers:
+    - name: Accept
+      value: application/json
   params:
     - name: actorId
       value: "{{actorId}}"
@@ -24,4 +27,5 @@ settings:
   followRedirects: false
   maxRedirects: 5
   forwardAuthorizationHeader: false
-
+  omitHeaders:
+    - Accept

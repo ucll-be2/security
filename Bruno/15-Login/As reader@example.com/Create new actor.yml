@@ -5,7 +5,10 @@ info:
 
 http:
   method: POST
-  url: "{{host}}/api/v1/actors"
+  url: "{{baseUrl}}/api/v1/actors"
+  headers:
+    - name: Accept
+      value: application/json
   body:
     type: json
     data: |-
@@ -14,10 +17,22 @@ http:
       }
   auth: inherit
 
+runtime:
+  actions:
+    - type: set-variable
+      phase: after-response
+      selector:
+        expression: res.body.id
+        method: jsonq
+      variable:
+        name: actorId
+        scope: runtime
+
 settings:
   encodeUrl: true
   timeout: 0
   followRedirects: false
   maxRedirects: 5
   forwardAuthorizationHeader: false
-
+  omitHeaders:
+    - Accept

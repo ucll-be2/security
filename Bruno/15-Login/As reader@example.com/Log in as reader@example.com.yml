@@ -5,7 +5,10 @@ info:
 
 http:
   method: POST
-  url: "{{host}}/api/v1/sessions"
+  url: "{{baseUrl}}/api/v1/sessions"
+  headers:
+    - name: Accept
+      value: application/json
   body:
     type: json
     data: |-
@@ -15,9 +18,15 @@ http:
       }
 
 runtime:
-  scripts:
-    - type: after-response
-      code: bru.setCollectionVar('reader_jwt', res.getBody().token);
+  actions:
+    - type: set-variable
+      phase: after-response
+      selector:
+        expression: res.body.token
+        method: jsonq
+      variable:
+        name: readerToken
+        scope: runtime
 
 settings:
   encodeUrl: true
@@ -25,4 +34,5 @@ settings:
   followRedirects: false
   maxRedirects: 5
   forwardAuthorizationHeader: false
-
+  omitHeaders:
+    - Accept

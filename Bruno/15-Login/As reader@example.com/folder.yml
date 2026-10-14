@@ -6,5 +6,4 @@ info:
 request:
   auth:
     type: bearer
-    token: "{{reader_jwt}}"
-
+    token: "{{readerToken}}"

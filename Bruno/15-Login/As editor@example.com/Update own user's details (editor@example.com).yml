@@ -1,14 +1,17 @@
 info:
-  name: Update other user's details (ID 1)
+  name: Update own user's details (editor@example.com)
   type: http
   seq: 5
 
 http:
   method: PUT
-  url: "{{host}}/api/v1/users/:user_id"
+  url: "{{baseUrl}}/api/v1/users/:userId"
+  headers:
+    - name: Accept
+      value: application/json
   params:
-    - name: user_id
-      value: "1"
+    - name: userId
+      value: "{{editorId}}"
       type: path
   body:
     type: json
@@ -25,4 +28,5 @@ settings:
   followRedirects: false
   maxRedirects: 5
   forwardAuthorizationHeader: false
-
+  omitHeaders:
+    - Accept

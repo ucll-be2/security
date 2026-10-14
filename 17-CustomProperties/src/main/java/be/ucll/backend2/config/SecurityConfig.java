@@ -6,9 +6,9 @@ import com.nimbusds.jose.jwk.JWKSet;
 import com.nimbusds.jose.jwk.OctetSequenceKey;
 import com.nimbusds.jose.jwk.source.ImmutableJWKSet;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnBooleanProperty;
-import org.springframework.boot.autoconfigure.h2.H2ConsoleProperties;
-import org.springframework.boot.autoconfigure.security.servlet.PathRequest;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
+import org.springframework.boot.h2console.autoconfigure.H2ConsoleProperties;
+import org.springframework.boot.security.autoconfigure.web.servlet.PathRequest;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.annotation.Order;
@@ -37,11 +37,11 @@ import java.util.Base64;
 @EnableMethodSecurity
 @EnableConfigurationProperties({JwtProperties.class, H2ConsoleProperties.class})
 public class SecurityConfig {
-    // Source: https://docs.spring.io/spring-boot/3.5/reference/data/sql.html#data.sql.h2-web-console.spring-security
+    // Source: https://docs.spring.io/spring-boot/reference/data/sql.html#data.sql.h2-web-console.spring-security
     @Bean
     @Order(0)
     @ConditionalOnBooleanProperty(prefix = "spring.h2.console", name = "enabled")
-    public SecurityFilterChain h2SecurityFilterChain(HttpSecurity http) throws Exception {
+    public SecurityFilterChain h2SecurityFilterChain(HttpSecurity http) {
         return http
                 .securityMatcher(PathRequest.toH2Console())
                 .csrf(csrf -> csrf.disable())
@@ -52,7 +52,7 @@ public class SecurityConfig {
 
     @Bean
     @Order(1)
-    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) {
         return http
                 .csrf(csrf -> csrf.disable())
                 .sessionManagement(

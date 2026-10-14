@@ -25,7 +25,7 @@ runtime:
         expression: res.body.id
         method: jsonq
       variable:
-        name: userId
+        name: readerId
         scope: runtime
 
 settings:

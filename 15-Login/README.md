@@ -222,19 +222,17 @@ return jwtService.generateToken(userDetails);
 
 #### Waar komt de `AuthenticationManager` vandaan?
 
-De `AuthenticationManager` wordt in Spring Security pas aangemaakt wanneer deze voor het eerst gebruikt wordt en kan ook een `Exception`
-gooien. Om het wat handiger te maken voegen we een extra *bean* toe
+De `AuthenticationManager` wordt in Spring Security pas aangemaakt wanneer deze voor het eerst gebruikt wordt. Om het wat handiger te maken voegen we een extra *bean* toe
 aan [`SecurityConfig`](./src/main/java/be/ucll/backend2/config/SecurityConfig.java):
 
 ```java
 @Bean
-public AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration) throws Exception {
+public AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration) {
     return authenticationConfiguration.getAuthenticationManager();
 }
 ```
 
-Dit zorgt ervoor dat de `AuthenticationManager` al vroeger wordt aangemaakt en moeten we in `SessionService` er geen rekening mee
-houden dat dit mogelijk een `Exception` gooit.
+Dit zorgt ervoor dat de `AuthenticationManager` al vroeger wordt aangemaakt.
 
 ### 4. Inloggen toestaan
 

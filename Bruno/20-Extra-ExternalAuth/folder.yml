@@ -1,0 +1,24 @@
+info:
+  name: 20-Extra-ExternalAuth
+  type: folder
+  seq: 12
+
+request:
+  auth:
+    type: oauth2
+    flow: authorization_code
+    authorizationUrl: http://localhost:9000/application/o/authorize/
+    accessTokenUrl: http://localhost:9000/application/o/token/
+    callbackUrl: http://localhost:8080/callback
+    credentials:
+      clientId: Sjb1LfOtvruM4In1KI8yVblElehq2Ew1T5n3k5s5
+      placement: body
+    scope: openid profile email
+    pkce: {}
+    tokenConfig:
+      id: credentials
+      placement:
+        header: Bearer
+      source: access_token
+    settings:
+      autoFetchToken: true

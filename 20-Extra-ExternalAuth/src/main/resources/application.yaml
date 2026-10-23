@@ -1,0 +1,43 @@
+spring:
+  application:
+    name: Spring-Security
+  datasource:
+    # Configureer H2 database in-memory met username sa en wachtwoord pass
+    url: jdbc:h2:mem:movies
+    username: sa
+    password: pass
+  jpa:
+    hibernate:
+      # Laat JPA niet automatisch het schema genereren
+      ddl-auto: none
+    # Toon SQL queries (handig voor debugging)
+    show-sql: true
+    properties:
+      hibernate:
+        # Beter leesbare SQL queries (handig voor debugging)
+        format_sql: true
+        # Voeg automatisch aanhalingstekens toe bij gereserveerde keywords zoals "User"
+        auto_quote_keyword: true
+  h2:
+    console:
+      # Enable H2 console
+      enabled: true
+      path: /h2-console
+  sql:
+    init:
+      # Gebruik altijd schema.sql
+      mode: always
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:9000/application/o/movies/
+springdoc:
+  swagger-ui:
+    oauth:
+      use-pkce-with-authorization-code-grant: true
+      client-id: Sjb1LfOtvruM4In1KI8yVblElehq2Ew1T5n3k5s5
+logging:
+  level:
+    # Gebruik debug logging voor Spring Security
+    org.springframework.security: DEBUG
